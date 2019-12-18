@@ -13,10 +13,8 @@ func isArchive(filename string) (bool, error) {
 	if err != nil {
 		return false, err
 	}
-	// fmt.Println(attributes & syscall.FILE_ATTRIBUTE_ARCHIVE)
 	return attributes&syscall.FILE_ATTRIBUTE_ARCHIVE != 0, nil
 
-	// windows.GetFileAttributes()
 }
 
 func isHidden(filename string) (bool, error) {
@@ -28,10 +26,7 @@ func isHidden(filename string) (bool, error) {
 	if err != nil {
 		return false, err
 	}
-	// fmt.Println(filename, attributes & syscall.FILE_ATTRIBUTE_HIDDEN)
 	return attributes&syscall.FILE_ATTRIBUTE_HIDDEN != 0, nil
-
-	// windows.GetFileAttributes()
 }
 
 func removeArchive(filename string) error {
